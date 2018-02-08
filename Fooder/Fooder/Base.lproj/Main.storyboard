@@ -134,19 +134,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcA-5A-jgK">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="0nq-qS-S5r"/>
+                                                    <constraint firstAttribute="width" constant="150" id="0nq-qS-S5r"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p39-XW-zIZ">
-                                                <rect key="frame" x="100" y="0.0" width="274" height="45"/>
+                                                <rect key="frame" x="150" y="0.0" width="224" height="45"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="yes"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -160,7 +160,6 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="vRf-4v-gBm" firstAttribute="leading" secondItem="BSI-xi-Uel" secondAttribute="leading" id="5qC-Dr-ulC"/>
                                     <constraint firstItem="vRf-4v-gBm" firstAttribute="top" secondItem="BSI-xi-Uel" secondAttribute="top" id="EEq-fY-Uli"/>
@@ -176,19 +175,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgk-8c-SPR">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="qX4-z5-OGU"/>
+                                                    <constraint firstAttribute="width" constant="150" id="qX4-z5-OGU"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NLG-X2-jtz">
-                                                <rect key="frame" x="100" y="0.0" width="274" height="45"/>
+                                                <rect key="frame" x="150" y="0.0" width="224" height="45"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -202,7 +201,6 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="3Bg-V8-gBD" secondAttribute="trailing" id="OIX-L5-xzC"/>
                                     <constraint firstItem="3Bg-V8-gBD" firstAttribute="leading" secondItem="QPK-jw-yTS" secondAttribute="leading" id="WxZ-Cg-wSl"/>
@@ -229,31 +227,36 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTK-lV-rqp">
                                                 <rect key="frame" x="150" y="0.0" width="224" height="45"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qjU-b5-Omg">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjU-b5-Omg">
                                                         <rect key="frame" x="0.0" y="0.0" width="224" height="45"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t2b-D3-SaR">
-                                                                <rect key="frame" x="0.0" y="0.0" width="74.666666666666657" height="45"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="45"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="100" id="1uw-z2-aDj"/>
+                                                                </constraints>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzO-XA-ugs">
-                                                                <rect key="frame" x="74.666666666666657" y="0.0" width="74.666666666666657" height="45"/>
+                                                                <rect key="frame" x="100" y="0.0" width="24" height="45"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHi-eB-gJX">
-                                                                <rect key="frame" x="149.33333333333331" y="0.0" width="74.666666666666686" height="45"/>
+                                                                <rect key="frame" x="124" y="0.0" width="100" height="45"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="100" id="pxZ-AY-nlM"/>
+                                                                </constraints>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="qjU-b5-Omg" firstAttribute="leading" secondItem="rTK-lV-rqp" secondAttribute="leading" id="IdF-E9-7kn"/>
                                                     <constraint firstAttribute="bottom" secondItem="qjU-b5-Omg" secondAttribute="bottom" id="YwY-jm-I6K"/>
@@ -273,7 +276,6 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="OqJ-HR-Zhc" secondAttribute="trailing" id="6gv-TW-fDx"/>
                                     <constraint firstAttribute="bottom" secondItem="OqJ-HR-Zhc" secondAttribute="bottom" id="AK3-Mh-tuy"/>
