@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39B5233C7E077648BA8A3038 /* Pods_Fooder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8135081CF107D7240B5825 /* Pods_Fooder.framework */; };
+		EC1C84C6202E196A00B3CA0C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1C84C5202E196A00B3CA0C /* MainViewController.swift */; };
+		EC1C84CA202E1BD900B3CA0C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = EC1C84C9202E1BD900B3CA0C /* Podfile */; };
 		EC1F6843202BF1A30058ADFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1F6842202BF1A30058ADFE /* AppDelegate.swift */; };
-		EC1F6845202BF1A30058ADFE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1F6844202BF1A30058ADFE /* MainViewController.swift */; };
 		EC1F6848202BF1A30058ADFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC1F6846202BF1A30058ADFE /* Main.storyboard */; };
 		EC1F684A202BF1A30058ADFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC1F6849202BF1A30058ADFE /* Assets.xcassets */; };
 		EC1F684D202BF1A30058ADFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC1F684B202BF1A30058ADFE /* LaunchScreen.storyboard */; };
@@ -39,9 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B8135081CF107D7240B5825 /* Pods_Fooder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fooder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94B18C4A85D9BD99B8331B04 /* Pods-Fooder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fooder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fooder/Pods-Fooder.release.xcconfig"; sourceTree = "<group>"; };
+		EBC2EAC064983CD1452A5CFE /* Pods-Fooder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fooder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fooder/Pods-Fooder.debug.xcconfig"; sourceTree = "<group>"; };
+		EC1C84C5202E196A00B3CA0C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EC1C84C9202E1BD900B3CA0C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		EC1F683F202BF1A20058ADFE /* Fooder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fooder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC1F6842202BF1A30058ADFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EC1F6844202BF1A30058ADFE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EC1F6847202BF1A30058ADFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC1F6849202BF1A30058ADFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC1F684C202BF1A30058ADFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39B5233C7E077648BA8A3038 /* Pods_Fooder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,13 +91,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		988F9994C5B818706BF913E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EBC2EAC064983CD1452A5CFE /* Pods-Fooder.debug.xcconfig */,
+				94B18C4A85D9BD99B8331B04 /* Pods-Fooder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BDA0F847286A2629047911B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B8135081CF107D7240B5825 /* Pods_Fooder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC1F6836202BF1A20058ADFE = {
 			isa = PBXGroup;
 			children = (
+				EC1C84C9202E1BD900B3CA0C /* Podfile */,
 				EC1F6841202BF1A30058ADFE /* Fooder */,
 				EC1F6856202BF1A40058ADFE /* FooderTests */,
 				EC1F6861202BF1A40058ADFE /* FooderUITests */,
 				EC1F6840202BF1A20058ADFE /* Products */,
+				988F9994C5B818706BF913E2 /* Pods */,
+				BDA0F847286A2629047911B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,7 +166,7 @@
 		EC1F6870202BF1E40058ADFE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EC1F6844202BF1A30058ADFE /* MainViewController.swift */,
+				EC1C84C5202E196A00B3CA0C /* MainViewController.swift */,
 				EC1F6871202BF2030058ADFE /* AccountViewController.swift */,
 				EC1F6873202BF22E0058ADFE /* ChooseViewController.swift */,
 				EC1F6875202BF2410058ADFE /* RestaurantViewController.swift */,
@@ -163,9 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC1F6867202BF1A40058ADFE /* Build configuration list for PBXNativeTarget "Fooder" */;
 			buildPhases = (
+				905E6F188D926079099E9CAE /* [CP] Check Pods Manifest.lock */,
 				EC1F683B202BF1A20058ADFE /* Sources */,
 				EC1F683C202BF1A20058ADFE /* Frameworks */,
 				EC1F683D202BF1A20058ADFE /* Resources */,
+				3E8E6557FCD10F343AD2C07B /* [CP] Embed Pods Frameworks */,
+				1A37A27DC5A1EE0147DE60D4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,6 +295,7 @@
 			files = (
 				EC1F684D202BF1A30058ADFE /* LaunchScreen.storyboard in Resources */,
 				EC1F684A202BF1A30058ADFE /* Assets.xcassets in Resources */,
+				EC1C84CA202E1BD900B3CA0C /* Podfile in Resources */,
 				EC1F6848202BF1A30058ADFE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,12 +316,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A37A27DC5A1EE0147DE60D4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Fooder/Pods-Fooder-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fooder/Pods-Fooder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E8E6557FCD10F343AD2C07B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fooder/Pods-Fooder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		905E6F188D926079099E9CAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fooder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EC1F683B202BF1A20058ADFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC1F6845202BF1A30058ADFE /* MainViewController.swift in Sources */,
+				EC1C84C6202E196A00B3CA0C /* MainViewController.swift in Sources */,
 				EC1F6876202BF2410058ADFE /* RestaurantViewController.swift in Sources */,
 				EC1F6879202BF26D0058ADFE /* Restaurant.swift in Sources */,
 				EC1F6874202BF22E0058ADFE /* ChooseViewController.swift in Sources */,
@@ -448,6 +534,7 @@
 		};
 		EC1F6868202BF1A40058ADFE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBC2EAC064983CD1452A5CFE /* Pods-Fooder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Fooder/Info.plist;
@@ -460,6 +547,7 @@
 		};
 		EC1F6869202BF1A40058ADFE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94B18C4A85D9BD99B8331B04 /* Pods-Fooder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Fooder/Info.plist;
@@ -543,6 +631,7 @@
 				EC1F6869202BF1A40058ADFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC1F686A202BF1A40058ADFE /* Build configuration list for PBXNativeTarget "FooderTests" */ = {
 			isa = XCConfigurationList;
@@ -551,6 +640,7 @@
 				EC1F686C202BF1A40058ADFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC1F686D202BF1A40058ADFE /* Build configuration list for PBXNativeTarget "FooderUITests" */ = {
 			isa = XCConfigurationList;
@@ -559,6 +649,7 @@
 				EC1F686F202BF1A40058ADFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

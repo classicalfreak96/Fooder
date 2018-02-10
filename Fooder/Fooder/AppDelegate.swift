@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    final private let googleMapsApiKey = "AIzaSyDQ9Fkj4PDBcxVm0S4IhRHJBoCTPcmyABo"
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

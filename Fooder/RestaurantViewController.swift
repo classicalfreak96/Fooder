@@ -7,19 +7,30 @@
 //
 
 import UIKit
+import GoogleMaps
+import UserNotifications
 
-class RestaurantViewController: UIViewController {
+class RestaurantViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UINavigationControllerDelegate {
+    
+    //label
+    @IBOutlet weak var restaurantNameLabel: UILabel!
+    @IBOutlet weak var restaurantLocationLabel: UILabel!
+    
+    //button
+    @IBOutlet weak var againButton: UIButton!
+    
+    //map
+    @IBOutlet weak var restaurantMapView: GMSMapView?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func againButtonPress(_ sender: Any) {
+        print("again button pressed")
     }
-    
     
 }
 

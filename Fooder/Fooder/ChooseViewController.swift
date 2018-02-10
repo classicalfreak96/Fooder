@@ -10,14 +10,18 @@ import UIKit
 
 class ChooseViewController: UIViewController {
     
+    //label
+    @IBOutlet weak var chooseLabel: UILabel!
+    
+    //images
+    @IBOutlet weak var restaurantOneImage: UIImageView!
+    @IBOutlet weak var restaurantTwoImage: UIImageView!
+    @IBOutlet weak var restaurantThreeImage: UIImageView!
+    @IBOutlet weak var restaurantFourImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
