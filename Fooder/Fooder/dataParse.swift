@@ -37,21 +37,6 @@ class dataParse{
         dataTask.resume()
     }
 
-
-    
-    
-//    private func getJSON(path: String) -> JSON {
-//        guard let url = URL(string: path) else { return JSON.null }
-//        do {
-//            let data = try Data(contentsOf: url)
-//            return try JSON(data: data)
-//        } catch {
-//            return JSON.null
-//        }
-//    }
-//    func searchData(function: String, symbol: String, interval: String, time_period: String){
-//        
-//    }
     
 
     
