@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		39B5233C7E077648BA8A3038 /* Pods_Fooder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8135081CF107D7240B5825 /* Pods_Fooder.framework */; };
+		68957E812030E42F001F1B04 /* SwiftyJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68957E802030E42F001F1B04 /* SwiftyJson.swift */; };
+		68957E832030E434001F1B04 /* dataParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68957E822030E434001F1B04 /* dataParse.swift */; };
 		EC1C84C6202E196A00B3CA0C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1C84C5202E196A00B3CA0C /* MainViewController.swift */; };
 		EC1C84CA202E1BD900B3CA0C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = EC1C84C9202E1BD900B3CA0C /* Podfile */; };
 		EC1F6843202BF1A30058ADFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1F6842202BF1A30058ADFE /* AppDelegate.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		68957E802030E42F001F1B04 /* SwiftyJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJson.swift; sourceTree = "<group>"; };
+		68957E822030E434001F1B04 /* dataParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataParse.swift; sourceTree = "<group>"; };
 		7B8135081CF107D7240B5825 /* Pods_Fooder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fooder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94B18C4A85D9BD99B8331B04 /* Pods-Fooder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fooder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fooder/Pods-Fooder.release.xcconfig"; sourceTree = "<group>"; };
 		EBC2EAC064983CD1452A5CFE /* Pods-Fooder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fooder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fooder/Pods-Fooder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,7 +138,9 @@
 		EC1F6841202BF1A30058ADFE /* Fooder */ = {
 			isa = PBXGroup;
 			children = (
+				68957E802030E42F001F1B04 /* SwiftyJson.swift */,
 				EC1F6842202BF1A30058ADFE /* AppDelegate.swift */,
+				68957E822030E434001F1B04 /* dataParse.swift */,
 				EC1F6877202BF24A0058ADFE /* Models */,
 				EC1F6870202BF1E40058ADFE /* ViewControllers */,
 				EC1F6846202BF1A30058ADFE /* Main.storyboard */,
@@ -376,9 +382,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68957E832030E434001F1B04 /* dataParse.swift in Sources */,
 				EC1C84C6202E196A00B3CA0C /* MainViewController.swift in Sources */,
 				EC1F6876202BF2410058ADFE /* RestaurantViewController.swift in Sources */,
 				EC1F6879202BF26D0058ADFE /* Restaurant.swift in Sources */,
+				68957E812030E42F001F1B04 /* SwiftyJson.swift in Sources */,
 				EC1F6874202BF22E0058ADFE /* ChooseViewController.swift in Sources */,
 				EC1F6843202BF1A30058ADFE /* AppDelegate.swift in Sources */,
 				EC1F6872202BF2030058ADFE /* AccountViewController.swift in Sources */,

@@ -45,6 +45,12 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     
     
     override func viewDidLoad() {
+        //testing for yelp API call
+        
+        let restaurantInfo = dataParse();
+        restaurantInfo.getResult();
+        
+        //end Test
         super.viewDidLoad()
         GMSServices.provideAPIKey("AIzaSyDQ9Fkj4PDBcxVm0S4IhRHJBoCTPcmyABo")
         locationManager.requestAlwaysAuthorization()
