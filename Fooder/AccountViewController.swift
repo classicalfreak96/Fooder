@@ -48,7 +48,7 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         //testing for yelp API call
         
         let restaurantInfo = dataParse();
-        restaurantInfo.getResult();
+        print(restaurantInfo.getResult());
         
         //end Test
         super.viewDidLoad()
