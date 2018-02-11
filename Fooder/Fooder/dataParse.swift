@@ -19,7 +19,7 @@ class dataParse{
     
     func getResult() -> JSON {
         var json:JSON = JSON.null
-        let request = NSMutableURLRequest(url: NSURL(string: "https://api.yelp.com/v3/transactions/delivery/search?latitude=37.786882&longitude=-122.399972")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        let request = NSMutableURLRequest(url: NSURL(string: "https://api.yelp.com/v3/businesses/search?term=delis&latitude=37.786882&longitude=-122.399972")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         

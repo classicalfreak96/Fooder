@@ -11,7 +11,13 @@ import CoreLocation
 //import GoogleMaps
 
 class Restaurant {
-    
+    let name: String? = nil
+    let address: String? = nil
+    let imageURL: URL? = nil
+    let categories: String? = nil
+    let distance: String? = nil
+    let ratingImageURL: URL? = nil
+    let reviewCount: NSNumber? = nil
 //    // On creation attributes
 //    var id: String
 //    var name: String
