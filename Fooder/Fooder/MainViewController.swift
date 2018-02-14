@@ -11,10 +11,9 @@ import UIKit
 class MainViewController: UIViewController {
     
     //globvarvariables
-    //    var jsonObject:JSON = []
     var restaurants:[Restaurant] = []
-    //    var tempRestaurant:Restaurant? = nil
     let restaurantInfo = dataParse()
+    var savedRestaurants:[Restaurant] = []
     var restaurantArrayCounter:Int = 0
     
     //labels
@@ -72,29 +71,16 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func yesButtonPress(_ sender: Any) {
-        restaurantArrayCounter += 1
-        restaurantNameLabel.text = restaurants[restaurantArrayCounter].name
-        let urlString = restaurants[restaurantArrayCounter].imageURL
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil {
-                print("Failed fetching image:", error!)
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                print("Not a proper HTTPURLResponse or statusCode")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.restaurantImage.image = UIImage(data: data!)
-            }
-            }.resume()
-        print("yes button was pressed")
-    }
-    
-    @IBAction func noButtonPress(_ sender: Any) {
+        restaurants[restaurantArrayCounter].passedPicture = restaurantImage.image!
+        savedRestaurants.append(restaurants[restaurantArrayCounter])
+        
+        if (savedRestaurants.count == 4) {
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChooseViewController") as? ChooseViewController
+            nextVC?.savedRestaurants = savedRestaurants
+            self.navigationController?.pushViewController(nextVC!, animated: true)
+            print("pushed")
+        }
+        else {
             restaurantArrayCounter += 1
             restaurantNameLabel.text = restaurants[restaurantArrayCounter].name
             let urlString = restaurants[restaurantArrayCounter].imageURL
@@ -114,11 +100,32 @@ class MainViewController: UIViewController {
                     self.restaurantImage.image = UIImage(data: data!)
                 }
                 }.resume()
-        print("no button was pressed")
+            print("yes button was pressed")
+        }
     }
     
-    
-    
+    @IBAction func noButtonPress(_ sender: Any) {
+        restaurantArrayCounter += 1
+        restaurantNameLabel.text = restaurants[restaurantArrayCounter].name
+        let urlString = restaurants[restaurantArrayCounter].imageURL
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print("Failed fetching image:", error!)
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                print("Not a proper HTTPURLResponse or statusCode")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.restaurantImage.image = UIImage(data: data!)
+            }
+            }.resume()
+        print("no button was pressed")
+    }
     
 }
 

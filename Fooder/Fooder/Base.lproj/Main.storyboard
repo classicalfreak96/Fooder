@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cpv-Q3-mRa">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLL-AR-HZ6">
-                                <rect key="frame" x="20" y="165" width="374" height="451"/>
+                                <rect key="frame" x="20" y="209" width="374" height="407"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-TH-Y6i">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="451"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="407"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -73,7 +73,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFj-Tl-bzs">
-                                <rect key="frame" x="20" y="105" width="374" height="50"/>
+                                <rect key="frame" x="20" y="149" width="374" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3Th-KG-Qhz"/>
@@ -83,7 +83,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHK-nV-b98">
-                                <rect key="frame" x="20" y="20" width="50" height="50"/>
+                                <rect key="frame" x="20" y="64" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Ieb-Nw-ZuB"/>
@@ -108,6 +108,7 @@
                             <constraint firstItem="hLL-AR-HZ6" firstAttribute="top" secondItem="hFj-Tl-bzs" secondAttribute="bottom" constant="10" id="neH-Dc-AwA"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="xqX-Pd-oEY"/>
                     <connections>
                         <outlet property="accountButton" destination="RHK-nV-b98" id="rhf-Wk-MMR"/>
                         <outlet property="noButton" destination="Cmp-4s-xbI" id="Gt5-Ix-1eo"/>
@@ -119,6 +120,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eiQ-n7-tzP">
+            <objects>
+                <navigationController id="cpv-Q3-mRa" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UIe-he-C4W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4IJ-f5-51H"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HFh-Cd-YJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-687" y="38"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="CId-fZ-EBk">
@@ -394,7 +411,7 @@
         <!--Choose View Controller-->
         <scene sceneID="hJv-mT-nP0">
             <objects>
-                <viewController id="hfY-2B-MDQ" customClass="ChooseViewController" customModule="Fooder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChooseViewController" id="hfY-2B-MDQ" customClass="ChooseViewController" customModule="Fooder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Te5-FT-BJ2"/>
                         <viewControllerLayoutGuide type="bottom" id="YTS-Pi-JRx"/>

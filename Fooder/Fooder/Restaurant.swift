@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 //import GoogleMaps
 
 class Restaurant {
@@ -19,6 +20,7 @@ class Restaurant {
     var rating: String = ""
     var price: String = ""
     var reviewCount: String = ""
+    var passedPicture: UIImage = UIImage()
 //    // On creation attributes
 //    var id: String
 //    var name: String

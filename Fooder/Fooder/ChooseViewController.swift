@@ -10,6 +10,9 @@ import UIKit
 
 class ChooseViewController: UIViewController {
     
+    var savedRestaurants:[Restaurant] = []
+    var restaurantArrayCounter:Int = 0
+    
     //label
     @IBOutlet weak var chooseLabel: UILabel!
     
@@ -21,7 +24,10 @@ class ChooseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        restaurantOneImage.image = savedRestaurants[0].passedPicture
+        restaurantTwoImage.image = savedRestaurants[1].passedPicture
+        restaurantThreeImage.image = savedRestaurants[2].passedPicture
+        restaurantFourImage.image = savedRestaurants[3].passedPicture
     }
     
     
