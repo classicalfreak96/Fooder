@@ -24,6 +24,7 @@ class ChooseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         restaurantOneImage.image = savedRestaurants[0].passedPicture
         restaurantTwoImage.image = savedRestaurants[1].passedPicture
         restaurantThreeImage.image = savedRestaurants[2].passedPicture

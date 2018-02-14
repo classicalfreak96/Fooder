@@ -82,7 +82,6 @@ class MainViewController: UIViewController {
         }
         else {
             restaurantArrayCounter += 1
-            restaurantNameLabel.text = restaurants[restaurantArrayCounter].name
             let urlString = restaurants[restaurantArrayCounter].imageURL
             guard let url = URL(string: urlString) else { return }
             URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -98,6 +97,7 @@ class MainViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.restaurantImage.image = UIImage(data: data!)
+                    self.restaurantNameLabel.text = self.restaurants[self.restaurantArrayCounter].name
                 }
                 }.resume()
             print("yes button was pressed")
@@ -106,7 +106,6 @@ class MainViewController: UIViewController {
     
     @IBAction func noButtonPress(_ sender: Any) {
         restaurantArrayCounter += 1
-        restaurantNameLabel.text = restaurants[restaurantArrayCounter].name
         let urlString = restaurants[restaurantArrayCounter].imageURL
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -121,6 +120,7 @@ class MainViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
+                self.restaurantNameLabel.text = self.restaurants[self.restaurantArrayCounter].name
                 self.restaurantImage.image = UIImage(data: data!)
             }
             }.resume()
