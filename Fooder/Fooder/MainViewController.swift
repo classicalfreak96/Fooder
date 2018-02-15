@@ -36,13 +36,14 @@ class MainViewController: UIViewController {
                     while (i < json["businesses"].count) {
                         let tempRestaurant = Restaurant()
                         tempRestaurant.name = String(describing: json["businesses"][i]["name"])
-                        print("tempRestaurant: " + (tempRestaurant.name))
                         tempRestaurant.address = String(describing: json["businesses"][i]["display_address"])
                         tempRestaurant.imageURL = String(describing: json["businesses"][i]["image_url"])
                         tempRestaurant.distance = String(describing: json["businesses"][i]["distance"])
                         tempRestaurant.rating = String(describing: json["businesses"][i]["rating"])
                         tempRestaurant.reviewCount = String(describing: json["businesses"][i]["review_count"])
                         tempRestaurant.price = String(describing: json["businesses"][i]["price"])
+                        tempRestaurant.coordinates = (Double (String(describing: json["businesses"][i]["coordinates"]["longitude"]))!, Double (String( describing: json["businesses"][i]["coordinates"]["latitude"]))!)
+                        print(tempRestaurant.coordinates)
                         self.restaurants.append(tempRestaurant)
                         i += 1
                     }

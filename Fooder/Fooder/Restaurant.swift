@@ -15,27 +15,11 @@ class Restaurant {
     var name: String = ""
     var address: String = ""
     var imageURL: String = ""
-//    var categories: String? = nil
     var distance: String = ""
+    var coordinates: (Double, Double) = (0,0)
     var rating: String = ""
     var price: String = ""
     var reviewCount: String = ""
     var passedPicture: UIImage = UIImage()
-//    // On creation attributes
-//    var id: String
-//    var name: String
-//    var email: String
-////    var location: GCLocation
-//    var priceRangeLow: int
-//    var priceRangeHigh: Integer
-//    // maybe do this as an array instead?
-//    
-//    //optional values
-//    var search: String?
-//    var proPicPath: String?
-//    
-//    var description: String {
-//        return "Restaurant: " + name
-//    }
 }
 
