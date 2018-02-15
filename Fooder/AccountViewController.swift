@@ -23,18 +23,12 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     @IBOutlet weak var backButton: UIButton!
     
     //map
-    @IBOutlet weak var currentLocationMap: GMSMapView!
-    var map: GMSMapView!
-    var camera = GMSCameraPosition.camera(withLatitude: 37.621262, longitude: -122.378945, zoom: 10.0)
-    var locationManager: CLLocationManager = {
-        var _locationManager = CLLocationManager()
-        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        _locationManager.activityType = .automotiveNavigation
-        _locationManager.distanceFilter = 10.0
-        return _locationManager
-    }()
+    @IBOutlet weak var currentLocationMap: GMSMapView?
+    var map: GMSMapView?
+    var camera = GMSCameraPosition.camera(withLatitude: 37.621262, longitude: -122.378945, zoom: 15.0)
     var currentPosition: CLLocationCoordinate2D?
     var currentMarker: GMSMarker?
+    var locationManager = CLLocationManager()
 
     
     //textfields
@@ -49,21 +43,19 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         GMSServices.provideAPIKey("AIzaSyDQ9Fkj4PDBcxVm0S4IhRHJBoCTPcmyABo")
         locationManager.requestAlwaysAuthorization()
         
-        map = GMSMapView.map(withFrame: currentLocationMap.frame, camera: camera)
+        map = GMSMapView.map(withFrame: (currentLocationMap?.frame)!, camera: camera)
         self.map?.isMyLocationEnabled = true
         
-        if (CLLocationManager.locationServicesEnabled())
-        {
-            print("yes, location services are enabled")
-            locationManager = CLLocationManager()
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestAlwaysAuthorization()
-            locationManager.startUpdatingLocation()
-        }
+        currentPosition = CLLocationCoordinate2D(latitude: 37.621262, longitude: -122.378945)
+        currentMarker = GMSMarker(position: currentPosition!)
+        currentMarker?.map = map!
         
-//        currentLocationMap.addSubview(map)
-
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        
+        currentLocationMap?.addSubview(map!)
     }
     
     @IBAction func backButtonPress(_ sender: Any) {
@@ -86,27 +78,21 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     @IBAction func searchChange(_ sender: Any) {
         print("changed search input")
     }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location: CLLocation = locations.last!
-        print("Location: \(location)")
-        
-        camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                              longitude: location.coordinate.longitude,
-                                              zoom: 15.0)
-        
-        if map.isHidden {
-            map.isHidden = false
-            map.camera = camera
-        } else {
-            map.animate(to: camera)
-        }
-        
-        currentLocationMap.addSubview(map)
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = locations.last
+        
+        camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude,
+                                              longitude: userLocation!.coordinate.longitude, zoom: 13.0)
+
+        map?.animate(to: camera)
+        print("LOCATION")
+        print(userLocation)
+        
+        locationManager.stopUpdatingLocation()
     }
     
-    // Handle authorization for the location manager.
+//     Handle authorization for the location manager.
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .restricted:
@@ -114,7 +100,7 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         case .denied:
             print("User denied access to location.")
             // Display the map using the default location.
-            map.isHidden = false
+            map?.isHidden = false
         case .notDetermined:
             print("Location status not determined.")
         case .authorizedAlways: fallthrough
