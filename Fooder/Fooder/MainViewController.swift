@@ -127,6 +127,11 @@ class MainViewController: UIViewController {
             }.resume()
         print("no button was pressed")
     }
+    @IBAction func accountButtonPress(_ sender: Any) {
+        let nextView = self.storyboard?.instantiateViewController(withIdentifier: "AccountViewController") as? AccountViewController
+        self.navigationController?.pushViewController(nextView!, animated: true)
+        print("pushing to account")
+    }
     
 }
 

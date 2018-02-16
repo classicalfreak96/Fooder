@@ -60,6 +60,9 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     
     @IBAction func backButtonPress(_ sender: Any) {
         print("back")
+        let nextView = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
+        self.navigationController?.pushViewController(nextView!, animated: true)
+        print("pushing to main")
     }
     
     @IBAction func priceRangeLowChange(_ sender: Any) {
