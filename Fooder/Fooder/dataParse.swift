@@ -17,11 +17,11 @@ class dataParse{
         "cache-control": "no-cache"
     ]
 
+    //latitude=37.786882&longitude=-122.399972
     
-    
-    func getResult(handler:@escaping (_ json:JSON?) -> Void) {
+    func getResult(offset: Int, lat: Double, long: Double, handler:@escaping (_ json:JSON?) -> Void) {
         var json:JSON = JSON.null
-        let request = NSMutableURLRequest(url: NSURL(string: "https://api.yelp.com/v3/businesses/search?term=restaurants&latitude=37.786882&longitude=-122.399972")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        let request = NSMutableURLRequest(url: NSURL(string: "https://api.yelp.com/v3/businesses/search?term=restaurants&offset=" + String(offset) + "&latitude=" + String(lat) + "&longitude=" + String(long))! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
