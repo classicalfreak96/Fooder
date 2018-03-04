@@ -46,10 +46,6 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         map = GMSMapView.map(withFrame: (currentLocationMap?.frame)!, camera: camera)
         self.map?.isMyLocationEnabled = true
         
-        currentPosition = CLLocationCoordinate2D(latitude: 37.621262, longitude: -122.378945)
-        currentMarker = GMSMarker(position: currentPosition!)
-        currentMarker?.map = map!
-        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -88,6 +84,12 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude,
                                               longitude: userLocation!.coordinate.longitude, zoom: 13.0)
 
+        currentPosition = CLLocationCoordinate2D(latitude: (userLocation!.coordinate.latitude), longitude: (userLocation!.coordinate.longitude))
+        
+        currentMarker = GMSMarker(position: currentPosition!)
+        currentMarker?.map = map!
+        currentMarker?.title = "Me!"
+        
         map?.animate(to: camera)
         print("LOCATION")
         print(userLocation)

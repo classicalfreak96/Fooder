@@ -25,7 +25,7 @@ class RestaurantViewController: UIViewController, GMSMapViewDelegate, CLLocation
     //map
     @IBOutlet weak var restaurantMapView: GMSMapView?
     var map: GMSMapView?
-//    var camera = GMSCameraPosition.camera(withLatitude: 37.621262, longitude: -122.378945, zoom: 15.0)
+//
     
     
     override func viewDidLoad() {
@@ -34,16 +34,23 @@ class RestaurantViewController: UIViewController, GMSMapViewDelegate, CLLocation
         
         GMSServices.provideAPIKey("AIzaSyDQ9Fkj4PDBcxVm0S4IhRHJBoCTPcmyABo")
         
-        var location = CLLocationCoordinate2D(latitude: (restaurant?.coordinates.0)!, longitude: (restaurant?.coordinates.1)!)
+        
+        let location = CLLocationCoordinate2D(latitude: (restaurant?.coordinates.1)!, longitude: (restaurant?.coordinates.0)!)
         print(location)
-        var camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 10.0)
+
+        let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 15.0)
         
         map = GMSMapView.map(withFrame: (restaurantMapView?.frame)!, camera: camera)
+        
+        let currentMarker = GMSMarker(position: location)
+        currentMarker.map = map!
+        currentMarker.title = restaurant!.name
 
-//        map?.animate(to: camera)
         restaurantMapView?.addSubview(map!)
-//
+
         print(restaurant!.name)
+        print(restaurant!.address)
+        print(restaurant!.coordinates)
         restaurantNameLabel.text = restaurant!.name
     }
     
