@@ -19,9 +19,6 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     @IBOutlet weak var radiusLabel: UILabel!
     @IBOutlet weak var searchLabel: UILabel!
     
-    //buttons
-    @IBOutlet weak var backButton: UIButton!
-    
     //map
     @IBOutlet weak var currentLocationMap: GMSMapView?
     var map: GMSMapView?
@@ -52,13 +49,6 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
         locationManager.startUpdatingLocation()
         
         currentLocationMap?.addSubview(map!)
-    }
-    
-    @IBAction func backButtonPress(_ sender: Any) {
-        print("back")
-        let nextView = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
-        self.navigationController?.pushViewController(nextView!, animated: true)
-        print("pushing to main")
     }
     
     @IBAction func priceRangeLowChange(_ sender: Any) {

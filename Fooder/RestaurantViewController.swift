@@ -52,6 +52,11 @@ class RestaurantViewController: UIViewController, GMSMapViewDelegate, CLLocation
         print(restaurant!.address)
         print(restaurant!.coordinates)
         restaurantNameLabel.text = restaurant!.name
+        
+        let tapLocation = UITapGestureRecognizer(target: self, action: #selector(locationTapped(tapGestureRecognizer:)))
+        restaurantLocationLabel.isUserInteractionEnabled = true
+        restaurantLocationLabel.addGestureRecognizer(tapLocation)
+
     }
     
     @IBAction func againButtonPress(_ sender: Any) {
@@ -59,6 +64,22 @@ class RestaurantViewController: UIViewController, GMSMapViewDelegate, CLLocation
         self.navigationController?.pushViewController(nextView!, animated: true)
         print("pushing to main")
     }
+    
+    func locationTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        var rLocation = "comgooglemaps://?center="
+        rLocation += String(format:"%f", (restaurant?.coordinates.0)!)
+        rLocation += ","
+        rLocation += String(format:"%f", (restaurant?.coordinates.1)!)
+        rLocation += "&zoom=15&views=traffic"
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+            UIApplication.shared.openURL(URL(string:
+                rLocation)!)
+        } else {
+            print("Can't use comgooglemaps://");
+        }
+    }
+
     
 }
 
