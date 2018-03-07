@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     let restaurantInfo = dataParse()
     var savedRestaurants:[Restaurant] = []
     var restaurantArrayCounter:Int = 0
+    var pictureCounter: Int = 0
     var offsetCounter: Int = 0
     
     //labels
@@ -57,6 +58,7 @@ class MainViewController: UIViewController {
         nextRestaurant()
         print("no button was pressed")
     }
+    
     @IBAction func accountButtonPress(_ sender: Any) {
         let nextView = self.storyboard?.instantiateViewController(withIdentifier: "AccountViewController") as? AccountViewController
         self.navigationController?.pushViewController(nextView!, animated: true)
@@ -73,18 +75,19 @@ class MainViewController: UIViewController {
                         let tempRestaurant = Restaurant()
                         tempRestaurant.name = String(describing: json["businesses"][i]["name"])
                         tempRestaurant.address = String(describing: json["businesses"][i]["display_address"])
-                        tempRestaurant.imageURL = String(describing: json["businesses"][i]["image_url"])
+                        tempRestaurant.imageURL.append(String(describing: json["businesses"][i]["image_url"]))
                         tempRestaurant.distance = String(describing: json["businesses"][i]["distance"])
                         tempRestaurant.rating = String(describing: json["businesses"][i]["rating"])
                         tempRestaurant.reviewCount = String(describing: json["businesses"][i]["review_count"])
                         tempRestaurant.price = String(describing: json["businesses"][i]["price"])
                         tempRestaurant.coordinates = (Double (String(describing: json["businesses"][i]["coordinates"]["longitude"]))!, Double (String( describing: json["businesses"][i]["coordinates"]["latitude"]))!)
-                        print("Coordinates of " + String(describing: tempRestaurant.name) + ": " + String(describing: tempRestaurant.coordinates))
+                        tempRestaurant.id = String(describing: json["businesses"][i]["id"])
                         self.restaurants.append(tempRestaurant)
                         i += 1
                     }
+                    self.restaurants[self.restaurantArrayCounter].imageURL += self.loadRestaurantPictures(restaurantID: self.restaurants[self.restaurantArrayCounter].id)
                     self.restaurantNameLabel.text = self.restaurants[self.restaurantArrayCounter].name
-                    let urlString = self.restaurants[self.restaurantArrayCounter].imageURL
+                    let urlString = self.restaurants[self.restaurantArrayCounter].imageURL[0]
                     guard let url = URL(string: urlString) else { return }
                     URLSession.shared.dataTask(with: url) { (data, response, error) in
                         if error != nil {
@@ -107,6 +110,25 @@ class MainViewController: UIViewController {
         }
     }
     
+    func loadRestaurantPictures(restaurantID: String) -> [String] {
+        var tempURLArray = [String]()
+        restaurantInfo.getRestaurantData(restaurantID: restaurantID) { (json) -> Void in
+            if let json = json{
+                DispatchQueue.main.async {
+                    print(json)
+                    var i:Int = 0
+                    while (i < json["photos"].count) {
+                        tempURLArray.append(json["photos"][i].string!)
+                        i += 1
+                    }
+                    print(tempURLArray)
+                }
+            }
+            
+        }
+        return tempURLArray
+    }
+    
     func nextRestaurant() {
         restaurantArrayCounter += 1
         if (restaurantArrayCounter == 20) {
@@ -116,7 +138,8 @@ class MainViewController: UIViewController {
             }
             restaurantArrayCounter = 0;
         }
-        let urlString = restaurants[restaurantArrayCounter].imageURL
+        restaurants[restaurantArrayCounter].imageURL += loadRestaurantPictures(restaurantID: restaurants[restaurantArrayCounter].id)
+        let urlString = restaurants[restaurantArrayCounter].imageURL[0]
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
@@ -135,5 +158,11 @@ class MainViewController: UIViewController {
             }
             }.resume()
     }
+    
+//    func nextImage() {
+//        if
+//        pictureCounter += 1
+//        let urlString = restaurants[restaurantArrayCounter].imageURL[pictureCounter]
+//    }
 }
 
