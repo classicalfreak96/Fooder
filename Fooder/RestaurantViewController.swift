@@ -29,6 +29,8 @@ class RestaurantViewController: UIViewController, GMSMapViewDelegate, CLLocation
     
     
     override func viewDidLoad() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         

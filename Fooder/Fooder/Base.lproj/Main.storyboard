@@ -151,46 +151,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dSd-Ti-RtH">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSd-Ti-RtH">
                                 <rect key="frame" x="20" y="95" width="374" height="396"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K0Y-FT-Jkj">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="396"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K0Y-FT-Jkj">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="346"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxs-jL-f8f">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxs-jL-f8f">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="O0a-DA-h0K"/>
                                                     <constraint firstAttribute="height" constant="30" id="OSe-RB-Pei"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bro-uT-r4g">
-                                                <rect key="frame" x="0.0" y="40" width="374" height="356"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bro-uT-r4g">
+                                                <rect key="frame" x="0.0" y="40" width="374" height="306"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Bro-uT-r4g" secondAttribute="trailing" id="4vT-PV-Aup"/>
-                                            <constraint firstItem="jxs-jL-f8f" firstAttribute="top" secondItem="K0Y-FT-Jkj" secondAttribute="top" id="8fn-Mx-ReP"/>
-                                            <constraint firstItem="jxs-jL-f8f" firstAttribute="leading" secondItem="K0Y-FT-Jkj" secondAttribute="leading" id="GPQ-Dv-OsO"/>
-                                            <constraint firstItem="Bro-uT-r4g" firstAttribute="top" secondItem="jxs-jL-f8f" secondAttribute="bottom" id="Ham-Tn-HT5"/>
-                                            <constraint firstAttribute="trailing" secondItem="jxs-jL-f8f" secondAttribute="trailing" id="Jdn-ow-nwe"/>
-                                            <constraint firstAttribute="bottom" secondItem="Bro-uT-r4g" secondAttribute="bottom" constant="40" id="U43-Ay-flx"/>
-                                            <constraint firstItem="Bro-uT-r4g" firstAttribute="leading" secondItem="K0Y-FT-Jkj" secondAttribute="leading" id="yRk-eZ-fdj"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="K0Y-FT-Jkj" secondAttribute="bottom" id="NAj-hQ-Mci"/>
-                                    <constraint firstItem="K0Y-FT-Jkj" firstAttribute="leading" secondItem="dSd-Ti-RtH" secondAttribute="leading" id="bbw-Ud-RzD"/>
-                                    <constraint firstItem="K0Y-FT-Jkj" firstAttribute="top" secondItem="dSd-Ti-RtH" secondAttribute="top" id="bh9-jp-uoE"/>
-                                    <constraint firstAttribute="trailing" secondItem="K0Y-FT-Jkj" secondAttribute="trailing" id="iYh-Ff-Nb5"/>
-                                    <constraint firstItem="K0Y-FT-Jkj" firstAttribute="top" secondItem="dSd-Ti-RtH" secondAttribute="top" id="usS-2b-k8c"/>
-                                    <constraint firstAttribute="trailing" secondItem="K0Y-FT-Jkj" secondAttribute="trailing" id="x1d-tM-HoX"/>
-                                    <constraint firstItem="K0Y-FT-Jkj" firstAttribute="leading" secondItem="dSd-Ti-RtH" secondAttribute="leading" id="zPc-4Y-Eup"/>
+                                    <constraint firstItem="K0Y-FT-Jkj" firstAttribute="leading" secondItem="dSd-Ti-RtH" secondAttribute="leading" id="1jE-2V-doq"/>
+                                    <constraint firstItem="K0Y-FT-Jkj" firstAttribute="top" secondItem="dSd-Ti-RtH" secondAttribute="top" id="2AZ-P6-Ue5"/>
+                                    <constraint firstAttribute="bottom" secondItem="K0Y-FT-Jkj" secondAttribute="bottom" constant="50" id="BBd-CE-gTI"/>
+                                    <constraint firstAttribute="trailing" secondItem="K0Y-FT-Jkj" secondAttribute="trailing" id="VfM-gd-HNm"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asI-RF-nGD">
@@ -374,6 +363,7 @@
                             <constraint firstItem="QPK-jw-yTS" firstAttribute="top" secondItem="asI-RF-nGD" secondAttribute="bottom" constant="10" id="OXW-d9-rvP"/>
                             <constraint firstItem="QPK-jw-yTS" firstAttribute="trailing" secondItem="jzx-Qf-8P8" secondAttribute="trailingMargin" id="RkM-VW-hWi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="asI-RF-nGD" secondAttribute="trailing" id="YLC-2p-oeb"/>
+                            <constraint firstItem="dSd-Ti-RtH" firstAttribute="top" secondItem="ttc-6g-16Q" secondAttribute="bottom" constant="75" id="fm0-Qu-hez"/>
                             <constraint firstItem="BSI-xi-Uel" firstAttribute="leading" secondItem="jzx-Qf-8P8" secondAttribute="leadingMargin" id="jdX-Oh-A2r"/>
                             <constraint firstItem="BSI-xi-Uel" firstAttribute="top" secondItem="QPK-jw-yTS" secondAttribute="bottom" constant="10" id="rnD-o2-RiF"/>
                             <constraint firstItem="T3c-zh-ogb" firstAttribute="top" secondItem="BSI-xi-Uel" secondAttribute="bottom" constant="30" id="t38-Zm-IJt"/>

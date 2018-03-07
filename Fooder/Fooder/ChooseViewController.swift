@@ -26,6 +26,8 @@ class ChooseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         restaurantOneImage.image = savedRestaurants[0].passedPicture
         restaurantTwoImage.image = savedRestaurants[1].passedPicture

@@ -29,6 +29,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var noButton: UIButton!
     
     override func viewDidLoad() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         super.viewDidLoad()
         DispatchQueue.main.async{
             self.loadRestaurantArray(offset: 0, lat: 37.786882, long: -122.399972)
