@@ -14,7 +14,6 @@ class MainViewController: UIViewController {
     var restaurants:[Restaurant] = []
     let restaurantInfo = dataParse()
     var savedRestaurants:[Restaurant] = []
-    var tempPictures = [String]()
     var restaurantArrayCounter:Int = 0
     var pictureCounter: Int = 0
     var offsetCounter: Int = 0
@@ -124,18 +123,15 @@ class MainViewController: UIViewController {
     }
     
     func loadRestaurantPictures(restaurantID: String){
-        tempPictures.removeAll()
         restaurantInfo.getRestaurantData(restaurantID: restaurantID) { (json) -> Void in
             if let json = json{
                 var i:Int = 1
                 while (i < json["photos"].count) {
                     print("appending: " + json["photos"][i].string!)
-                    self.tempPictures.append(json["photos"][i].string!)
+                    self.restaurants[self.restaurantArrayCounter].imageURL.append(json["photos"][i].string!)
                     i += 1
                 }
-                self.restaurants[self.restaurantArrayCounter].imageURL += self.tempPictures
             }
-            
         }
     }
     

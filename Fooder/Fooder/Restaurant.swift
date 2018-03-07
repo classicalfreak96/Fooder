@@ -20,6 +20,7 @@ class Restaurant {
     var rating: String = ""
     var price: String = ""
     var reviewCount: String = ""
+    var images = [UIImage]()
     var passedPicture: UIImage = UIImage()
     var id: String = ""
 }
