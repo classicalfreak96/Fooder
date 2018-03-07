@@ -14,12 +14,13 @@ import UIKit
 class Restaurant {
     var name: String = ""
     var address: String = ""
-    var imageURL: String = ""
+    var imageURL = [String]()
     var distance: String = ""
     var coordinates: (Double, Double) = (0,0)
     var rating: String = ""
     var price: String = ""
     var reviewCount: String = ""
     var passedPicture: UIImage = UIImage()
+    var id: String = ""
 }
 
