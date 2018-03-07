@@ -49,7 +49,6 @@ class dataParse{
     
     func getRestaurantData(restaurantID: String, handler:@escaping (_ json:JSON?) -> Void) {
         var json:JSON = JSON.null
-        print(restaurantID)
         let simpleRestaurantID = restaurantID.folding(options: .diacriticInsensitive, locale: .current)
         let request = NSMutableURLRequest(url: NSURL(string: "https://api.yelp.com/v3/businesses/" + simpleRestaurantID )! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
