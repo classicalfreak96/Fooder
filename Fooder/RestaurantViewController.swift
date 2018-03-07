@@ -17,18 +17,22 @@ class RestaurantViewController: UIViewController, GMSMapViewDelegate, CLLocation
     
     //label
     @IBOutlet weak var restaurantNameLabel: UILabel!
-    @IBOutlet weak var restaurantLocationLabel: UILabel!
     
     //button
     @IBOutlet weak var againButton: UIButton!
+    @IBOutlet weak var googleMapsButton: UIButton!
+    @IBOutlet weak var openTableButton: UIButton!
+    @IBOutlet weak var yelpButton: UIButton!
+    
     
     //map
     @IBOutlet weak var restaurantMapView: GMSMapView?
     var map: GMSMapView?
-//
     
     
     override func viewDidLoad() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -52,10 +56,6 @@ class RestaurantViewController: UIViewController, GMSMapViewDelegate, CLLocation
         print(restaurant!.address)
         print(restaurant!.coordinates)
         restaurantNameLabel.text = restaurant!.name
-        
-        let tapLocation = UITapGestureRecognizer(target: self, action: #selector(locationTapped(tapGestureRecognizer:)))
-        restaurantLocationLabel.isUserInteractionEnabled = true
-        restaurantLocationLabel.addGestureRecognizer(tapLocation)
 
     }
     
@@ -65,21 +65,27 @@ class RestaurantViewController: UIViewController, GMSMapViewDelegate, CLLocation
         print("pushing to main")
     }
     
-    func locationTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    {
-        var rLocation = "comgooglemaps://?center="
-        rLocation += String(format:"%f", (restaurant?.coordinates.0)!)
-        rLocation += ","
-        rLocation += String(format:"%f", (restaurant?.coordinates.1)!)
-        rLocation += "&zoom=15&views=traffic"
-        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
-            UIApplication.shared.openURL(URL(string:
-                rLocation)!)
-        } else {
-            print("Can't use comgooglemaps://");
-        }
+    @IBAction func googleMapsDirect(_ sender: Any) {
+        var googleMapString = "http://www.google.com/maps/search/?api=1&query="
+        googleMapString += "\((restaurant?.coordinates.1)!)"
+        googleMapString += ","
+        googleMapString += "\((restaurant?.coordinates.0)!)"
+        print(googleMapString)
+        
+        UIApplication.shared.openURL(URL(string: googleMapString)!)
     }
 
+    
+    @IBAction func openTableDirect(_ sender: Any) {
+        UIApplication.shared.openURL(URL(string: "http://www.opentable.com")!)
+        
+
+    }
+
+    @IBAction func yelpDirect(_ sender: Any) {
+        UIApplication.shared.openURL(URL(string: "http://www.yelp.com")!)
+    }
+    
     
 }
 

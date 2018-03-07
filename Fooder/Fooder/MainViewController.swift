@@ -33,6 +33,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var prevPic: UIButton!
     
     override func viewDidLoad() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         super.viewDidLoad()
         DispatchQueue.main.async{
             self.loadRestaurantArray(offset: 0, lat: 37.786882, long: -122.399972)
@@ -58,6 +60,7 @@ class MainViewController: UIViewController {
     @IBAction func noButtonPress(_ sender: Any) {
         nextRestaurant()
         print("no button was pressed")
+//        UIApplication.shared.openURL(URL(string: "http://www.stackoverflow.com")!)
     }
     
     @IBAction func accountButtonPress(_ sender: Any) {
