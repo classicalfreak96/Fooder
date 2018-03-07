@@ -57,6 +57,7 @@ class MainViewController: UIViewController {
     @IBAction func noButtonPress(_ sender: Any) {
         nextRestaurant()
         print("no button was pressed")
+//        UIApplication.shared.openURL(URL(string: "http://www.stackoverflow.com")!)
     }
     
     @IBAction func accountButtonPress(_ sender: Any) {

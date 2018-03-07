@@ -543,17 +543,52 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QY5-Dq-5ed">
                                 <rect key="frame" x="30" y="85" width="354" height="621"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpb-ow-O73">
-                                        <rect key="frame" x="0.0" y="561" width="354" height="60"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5P-Cd-bJm">
+                                        <rect key="frame" x="0.0" y="569" width="354" height="52"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U1Q-6c-n9z">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="52"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zo0-kU-Wjd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="111.33333333333334" height="52"/>
+                                                        <state key="normal" title="GoogleMaps">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="googleMapsDirect:" destination="SkF-u8-Kop" eventType="touchUpInside" id="6lZ-hx-8bR"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToL-Ep-32h">
+                                                        <rect key="frame" x="121.33333333333333" y="0.0" width="111.33333333333336" height="52"/>
+                                                        <state key="normal" title="OpenTable">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="openTableDirect:" destination="SkF-u8-Kop" eventType="touchUpInside" id="rEc-rB-uEh"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7t-uk-vKX">
+                                                        <rect key="frame" x="242.66666666666671" y="0.0" width="111.33333333333329" height="52"/>
+                                                        <state key="normal" title="Yelp">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="yelpDirect:" destination="SkF-u8-Kop" eventType="touchUpInside" id="69H-cA-23U"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="Y5m-aZ-Ugq"/>
+                                            <constraint firstAttribute="trailing" secondItem="U1Q-6c-n9z" secondAttribute="trailing" id="DhN-YH-mbf"/>
+                                            <constraint firstAttribute="bottom" secondItem="U1Q-6c-n9z" secondAttribute="bottom" id="Gsg-Mb-4Fr"/>
+                                            <constraint firstItem="U1Q-6c-n9z" firstAttribute="leading" secondItem="g5P-Cd-bJm" secondAttribute="leading" id="Tol-5Z-LjI"/>
+                                            <constraint firstItem="U1Q-6c-n9z" firstAttribute="top" secondItem="g5P-Cd-bJm" secondAttribute="top" id="oPz-r4-iDy"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pms-wW-MLv">
-                                        <rect key="frame" x="0.0" y="521" width="354" height="40"/>
+                                        <rect key="frame" x="0.0" y="529" width="354" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="QYI-0R-4WN"/>
                                         </constraints>
@@ -562,20 +597,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ed-IX-Oq6">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="471"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="479"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="g5P-Cd-bJm" firstAttribute="top" secondItem="pms-wW-MLv" secondAttribute="bottom" id="7QA-11-m9F"/>
+                                    <constraint firstAttribute="trailing" secondItem="g5P-Cd-bJm" secondAttribute="trailing" id="9Qb-QP-Zie"/>
                                     <constraint firstAttribute="trailing" secondItem="pms-wW-MLv" secondAttribute="trailing" id="CsR-Wu-UhS"/>
-                                    <constraint firstAttribute="bottom" secondItem="Vpb-ow-O73" secondAttribute="bottom" id="ES0-ul-euz"/>
-                                    <constraint firstItem="Vpb-ow-O73" firstAttribute="top" secondItem="pms-wW-MLv" secondAttribute="bottom" id="FGI-6x-gZi"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vpb-ow-O73" secondAttribute="trailing" id="Idi-KK-AXx"/>
                                     <constraint firstItem="2Ed-IX-Oq6" firstAttribute="leading" secondItem="QY5-Dq-5ed" secondAttribute="leading" id="LfT-Wq-rEa"/>
+                                    <constraint firstItem="g5P-Cd-bJm" firstAttribute="leading" secondItem="QY5-Dq-5ed" secondAttribute="leading" id="axk-wV-aYz"/>
+                                    <constraint firstItem="g5P-Cd-bJm" firstAttribute="top" secondItem="QY5-Dq-5ed" secondAttribute="top" constant="569" id="cqm-EF-jmx"/>
                                     <constraint firstAttribute="trailing" secondItem="2Ed-IX-Oq6" secondAttribute="trailing" id="jUR-DD-Iow"/>
+                                    <constraint firstAttribute="bottom" secondItem="g5P-Cd-bJm" secondAttribute="bottom" id="kcr-ew-wah"/>
                                     <constraint firstItem="pms-wW-MLv" firstAttribute="leading" secondItem="QY5-Dq-5ed" secondAttribute="leading" id="rD3-vc-7cU"/>
-                                    <constraint firstItem="Vpb-ow-O73" firstAttribute="leading" secondItem="QY5-Dq-5ed" secondAttribute="leading" id="tfa-Wk-OjS"/>
                                     <constraint firstItem="2Ed-IX-Oq6" firstAttribute="top" secondItem="QY5-Dq-5ed" secondAttribute="top" id="x48-0u-s4p"/>
                                     <constraint firstItem="pms-wW-MLv" firstAttribute="top" secondItem="2Ed-IX-Oq6" secondAttribute="bottom" constant="50" id="z60-5F-bYu"/>
                                 </constraints>
@@ -593,9 +629,11 @@
                     </view>
                     <connections>
                         <outlet property="againButton" destination="r2G-Hb-g4e" id="eOx-F2-EJH"/>
-                        <outlet property="restaurantLocationLabel" destination="Vpb-ow-O73" id="SiC-EZ-yxJ"/>
+                        <outlet property="googleMapsButton" destination="zo0-kU-Wjd" id="Cvx-5W-Mft"/>
+                        <outlet property="openTableButton" destination="ToL-Ep-32h" id="vSs-ix-yuH"/>
                         <outlet property="restaurantMapView" destination="2Ed-IX-Oq6" id="8im-Ut-VUc"/>
                         <outlet property="restaurantNameLabel" destination="pms-wW-MLv" id="Ska-j3-fjq"/>
+                        <outlet property="yelpButton" destination="Y7t-uk-vKX" id="nzh-U0-8yQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZS-3M-hEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
