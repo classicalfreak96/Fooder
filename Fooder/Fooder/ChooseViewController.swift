@@ -29,10 +29,16 @@ class ChooseViewController: UIViewController {
 
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
-        restaurantOneImage.image = savedRestaurants[0].passedPicture
-        restaurantTwoImage.image = savedRestaurants[1].passedPicture
-        restaurantThreeImage.image = savedRestaurants[2].passedPicture
-        restaurantFourImage.image = savedRestaurants[3].passedPicture
+//        restaurantOneImage.image = savedRestaurants[0].passedPicture
+//        restaurantTwoImage.image = savedRestaurants[1].passedPicture
+//        restaurantThreeImage.image = savedRestaurants[2].passedPicture
+//        restaurantFourImage.image = savedRestaurants[3].passedPicture
+        
+          restaurantOneImage.image = savedRestaurants[0].images[0]
+          restaurantTwoImage.image = savedRestaurants[1].images[0]
+          restaurantThreeImage.image = savedRestaurants[2].images[0]
+          restaurantFourImage.image = savedRestaurants[3].images[0]
+        
         
         let tapRestaurantOne = UITapGestureRecognizer(target: self, action: #selector(imageOneTapped(tapGestureRecognizer:)))
         restaurantOneImage.isUserInteractionEnabled = true

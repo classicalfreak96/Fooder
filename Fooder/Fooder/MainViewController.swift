@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func yesButtonPress(_ sender: Any) {
-        restaurants[restaurantArrayCounter].passedPicture = restaurantImage.image!
+//        restaurants[restaurantArrayCounter].passedPicture = restaurantImage.image!
         savedRestaurants.append(restaurants[restaurantArrayCounter])
         
         if (savedRestaurants.count == 4) {
@@ -125,10 +125,26 @@ class MainViewController: UIViewController {
     func loadRestaurantPictures(restaurantID: String){
         restaurantInfo.getRestaurantData(restaurantID: restaurantID) { (json) -> Void in
             if let json = json{
-                var i:Int = 1
+                var i:Int = 0
                 while (i < json["photos"].count) {
                     print("appending: " + json["photos"][i].string!)
                     self.restaurants[self.restaurantArrayCounter].imageURL.append(json["photos"][i].string!)
+                    let urlString = json["photos"][i].string!
+                    guard let url = URL(string: urlString) else { return }
+                    URLSession.shared.dataTask(with: url) { (data, response, error) in
+                        if error != nil {
+                            print("Failed fetching image:", error!)
+                            return
+                        }
+                        
+                        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                            print("Not a proper HTTPURLResponse or statusCode")
+                            return
+                        }
+                        DispatchQueue.main.async {
+                            self.restaurants[self.restaurantArrayCounter].images.append(UIImage(data: data!)!)
+                        }
+                        }.resume()
                     i += 1
                 }
             }
@@ -168,48 +184,50 @@ class MainViewController: UIViewController {
     }
     
     func nextImage() {
-        if (pictureCounter < restaurants[restaurantArrayCounter].imageURL.count - 1) {
+        if (pictureCounter < restaurants[restaurantArrayCounter].images.count - 1) {
             pictureCounter += 1
-            let urlString = restaurants[restaurantArrayCounter].imageURL[pictureCounter]
-            guard let url = URL(string: urlString) else { return }
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    print("Failed fetching image:", error!)
-                    return
-                }
-                
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    print("Not a proper HTTPURLResponse or statusCode")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.restaurantImage.image = UIImage(data: data!)
-                }
-                }.resume()
+//            let urlString = restaurants[restaurantArrayCounter].imageURL[pictureCounter]
+//            guard let url = URL(string: urlString) else { return }
+//            URLSession.shared.dataTask(with: url) { (data, response, error) in
+//                if error != nil {
+//                    print("Failed fetching image:", error!)
+//                    return
+//                }
+//                
+//                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+//                    print("Not a proper HTTPURLResponse or statusCode")
+//                    return
+//                }
+//                
+//                DispatchQueue.main.async {
+//                    self.restaurantImage.image = UIImage(data: data!)
+//                }
+//                }.resume()
+            self.restaurantImage.image = self.restaurants[self.restaurantArrayCounter].images[pictureCounter]
         }
     }
     
     func prevImage() {
         if (pictureCounter > 0) {
             pictureCounter -= 1
-            let urlString = restaurants[restaurantArrayCounter].imageURL[pictureCounter]
-            guard let url = URL(string: urlString) else { return }
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    print("Failed fetching image:", error!)
-                    return
-                }
-                
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    print("Not a proper HTTPURLResponse or statusCode")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.restaurantImage.image = UIImage(data: data!)
-                }
-                }.resume()
+//            let urlString = restaurants[restaurantArrayCounter].imageURL[pictureCounter]
+//            guard let url = URL(string: urlString) else { return }
+//            URLSession.shared.dataTask(with: url) { (data, response, error) in
+//                if error != nil {
+//                    print("Failed fetching image:", error!)
+//                    return
+//                }
+//                
+//                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+//                    print("Not a proper HTTPURLResponse or statusCode")
+//                    return
+//                }
+//                
+//                DispatchQueue.main.async {
+//                    self.restaurantImage.image = UIImage(data: data!)
+//                }
+//                }.resume()
+            self.restaurantImage.image = self.restaurants[self.restaurantArrayCounter].images[pictureCounter]
         }
     }
 }
