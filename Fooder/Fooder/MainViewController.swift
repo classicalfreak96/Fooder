@@ -41,7 +41,6 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func yesButtonPress(_ sender: Any) {
-//        restaurants[restaurantArrayCounter].passedPicture = restaurantImage.image!
         savedRestaurants.append(restaurants[restaurantArrayCounter])
         
         if (savedRestaurants.count == 4) {
@@ -186,23 +185,6 @@ class MainViewController: UIViewController {
     func nextImage() {
         if (pictureCounter < restaurants[restaurantArrayCounter].images.count - 1) {
             pictureCounter += 1
-//            let urlString = restaurants[restaurantArrayCounter].imageURL[pictureCounter]
-//            guard let url = URL(string: urlString) else { return }
-//            URLSession.shared.dataTask(with: url) { (data, response, error) in
-//                if error != nil {
-//                    print("Failed fetching image:", error!)
-//                    return
-//                }
-//                
-//                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-//                    print("Not a proper HTTPURLResponse or statusCode")
-//                    return
-//                }
-//                
-//                DispatchQueue.main.async {
-//                    self.restaurantImage.image = UIImage(data: data!)
-//                }
-//                }.resume()
             self.restaurantImage.image = self.restaurants[self.restaurantArrayCounter].images[pictureCounter]
         }
     }
@@ -210,23 +192,6 @@ class MainViewController: UIViewController {
     func prevImage() {
         if (pictureCounter > 0) {
             pictureCounter -= 1
-//            let urlString = restaurants[restaurantArrayCounter].imageURL[pictureCounter]
-//            guard let url = URL(string: urlString) else { return }
-//            URLSession.shared.dataTask(with: url) { (data, response, error) in
-//                if error != nil {
-//                    print("Failed fetching image:", error!)
-//                    return
-//                }
-//                
-//                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-//                    print("Not a proper HTTPURLResponse or statusCode")
-//                    return
-//                }
-//                
-//                DispatchQueue.main.async {
-//                    self.restaurantImage.image = UIImage(data: data!)
-//                }
-//                }.resume()
             self.restaurantImage.image = self.restaurants[self.restaurantArrayCounter].images[pictureCounter]
         }
     }
