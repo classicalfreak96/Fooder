@@ -168,24 +168,24 @@ class MainViewController: UIViewController {
                 self.offsetCounter += 20
                 self.loadRestaurantArray(offset: self.offsetCounter, lat: 37.786882, long: -122.399972)
                 self.loadRestaurantPictures(restaurantID: self.restaurants[self.restaurantArrayCounter].id)
-                let urlString = self.restaurants[self.restaurantArrayCounter].imageURL[0]
-                guard let url = URL(string: urlString) else { return }
-                URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    if error != nil {
-                        print("Failed fetching image:", error!)
-                        return
-                    }
-                    
-                    guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                        print("Not a proper HTTPURLResponse or statusCode")
-                        return
-                    }
-                    
-                    DispatchQueue.main.async {
-                        self.restaurantNameLabel.text = self.restaurants[self.restaurantArrayCounter].name
-                        self.restaurantImage.image = UIImage(data: data!)
-                    }
-                    }.resume()
+//                let urlString = self.restaurants[self.restaurantArrayCounter].imageURL[0]
+//                guard let url = URL(string: urlString) else { return }
+//                URLSession.shared.dataTask(with: url) { (data, response, error) in
+//                    if error != nil {
+//                        print("Failed fetching image:", error!)
+//                        return
+//                    }
+//                    
+//                    guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+//                        print("Not a proper HTTPURLResponse or statusCode")
+//                        return
+//                    }
+//                    
+//                    DispatchQueue.main.async {
+//                        self.restaurantNameLabel.text = self.restaurants[self.restaurantArrayCounter].name
+//                        self.restaurantImage.image = UIImage(data: data!)
+//                    }
+//                    }.resume()
             }
             restaurantArrayCounter = 0;
         }
