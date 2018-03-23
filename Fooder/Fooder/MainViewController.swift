@@ -44,6 +44,8 @@ class MainViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         super.viewDidLoad()
+        self.restaurantNameLabel.text = "Loading"
+        self.restaurantImage.image = #imageLiteral(resourceName: "loading2")
         DispatchQueue.main.async{
             self.loadRestaurantArray(offset: 0, lat: 37.786882, long: -122.399972)
         }
