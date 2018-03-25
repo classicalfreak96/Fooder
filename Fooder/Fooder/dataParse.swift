@@ -71,7 +71,7 @@ class dataParse{
                     }
                 }
             }
-            //            print("Return Json1 : " + String(describing: json))
+//            print("Return Json1 : " + String(describing: json))
         })
         dataTask.resume()
     }

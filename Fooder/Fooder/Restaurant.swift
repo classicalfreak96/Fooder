@@ -23,5 +23,6 @@ class Restaurant {
     var images = [UIImage]()
     var passedPicture: UIImage = UIImage()
     var id: String = ""
+    var categories = Set<String>()
 }
 

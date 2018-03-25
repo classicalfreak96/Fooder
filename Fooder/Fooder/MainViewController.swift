@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
     var savedRestaurants:[Restaurant] = []
     var restaurantArrayCounter:Int = 0
     var pictureCounter: Int = 0
-    var offsetCounter: Int = 0
+    var offsetCounter: Int = 0 
     
     //labels
     @IBOutlet weak var restaurantNameLabel: UILabel!
@@ -105,7 +105,7 @@ class MainViewController: UIViewController {
                         self.restaurants.append(tempRestaurant)
                         i += 1
                     }
-                    self.loadRestaurantPictures(restaurantID: self.restaurants[self.restaurantArrayCounter].id)
+                    self.loadRestaurantData(restaurantID: self.restaurants[self.restaurantArrayCounter].id)
                     self.restaurantNameLabel.text = self.restaurants[self.restaurantArrayCounter].name
                     let urlString = self.restaurants[self.restaurantArrayCounter].imageURL[0]
                     guard let url = URL(string: urlString) else { return }
@@ -130,7 +130,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    func loadRestaurantPictures(restaurantID: String){
+    func loadRestaurantData(restaurantID: String){
         restaurantInfo.getRestaurantData(restaurantID: restaurantID) { (json) -> Void in
             if let json = json{
                 var i:Int = 0
@@ -154,6 +154,11 @@ class MainViewController: UIViewController {
                         }.resume()
                     i += 1
                 }
+                var j:Int = 0
+                while (j < json["categories"].count) {
+                    self.restaurants[self.restaurantArrayCounter].categories.insert(json["categories"][j]["alias"].string!)
+                    j += 1
+                }
             }
         }
     }
@@ -169,13 +174,13 @@ class MainViewController: UIViewController {
             DispatchQueue.main.async{
                 self.offsetCounter += 20
                 self.loadRestaurantArray(offset: self.offsetCounter, lat: 37.786882, long: -122.399972)
-                self.loadRestaurantPictures(restaurantID: self.restaurants[self.restaurantArrayCounter].id)
+                self.loadRestaurantData(restaurantID: self.restaurants[self.restaurantArrayCounter].id)
             }
             restaurantArrayCounter = 0;
         }
         else {
             print("not new set");
-            loadRestaurantPictures(restaurantID: restaurants[restaurantArrayCounter].id)
+            loadRestaurantData(restaurantID: restaurants[restaurantArrayCounter].id)
             let urlString = restaurants[restaurantArrayCounter].imageURL[0]
             guard let url = URL(string: urlString) else { return }
             URLSession.shared.dataTask(with: url) { (data, response, error) in
