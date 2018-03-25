@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cpv-Q3-mRa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cpv-Q3-mRa">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -46,12 +46,16 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="d1u-TH-Y6i" firstAttribute="leading" secondItem="hLL-AR-HZ6" secondAttribute="leading" id="4T0-cP-AwH"/>
                                     <constraint firstItem="d1u-TH-Y6i" firstAttribute="top" secondItem="hLL-AR-HZ6" secondAttribute="top" id="DPG-3c-Ofh"/>
                                     <constraint firstAttribute="bottom" secondItem="d1u-TH-Y6i" secondAttribute="bottom" id="bJT-Lh-Vwl"/>
                                     <constraint firstAttribute="trailing" secondItem="d1u-TH-Y6i" secondAttribute="trailing" id="zlQ-Ez-V3b"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Dzz-Rm-NM7" appends="YES" id="Mnl-cj-0Ao"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U02-WB-Hrb">
                                 <rect key="frame" x="20" y="626" width="374" height="80"/>
@@ -138,6 +142,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Dzz-Rm-NM7">
+                    <connections>
+                        <action selector="restaurantSwipe:" destination="BYZ-38-t0r" id="J23-AH-Dvq"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>

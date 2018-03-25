@@ -49,7 +49,11 @@ class MainViewController: UIViewController {
         DispatchQueue.main.async{
             self.loadRestaurantArray(offset: 0, lat: 37.786882, long: -122.399972)
         }
+    
+        
     }
+    
+    
     
     @IBAction func yesButtonPress(_ sender: Any) {
         savedRestaurants.append(restaurants[restaurantArrayCounter])
@@ -67,7 +71,6 @@ class MainViewController: UIViewController {
     
     @IBAction func noButtonPress(_ sender: Any) {
         nextRestaurant()
-//        UIApplication.shared.openURL(URL(string: "http://www.stackoverflow.com")!)
     }
     
     @IBAction func accountButtonPress(_ sender: Any) {
@@ -84,6 +87,49 @@ class MainViewController: UIViewController {
         prevImage()
     }
     
+    @IBAction func restaurantSwipe(_ sender: UIPanGestureRecognizer) {
+        let restaurantView = sender.view!
+        let point = sender.translation(in: view)
+        
+        restaurantView.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+        
+        if sender.state == UIGestureRecognizerState.ended {
+            
+            if restaurantView.center.y < 75 {
+                
+                UIView.animate(withDuration: 0.3, animations: {
+                    restaurantView.center = CGPoint(x: restaurantView.center.x, y: restaurantView.center.y - 200)
+                })
+                savedRestaurants.append(restaurants[restaurantArrayCounter])
+                
+                if (savedRestaurants.count == 4) {
+                    let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChooseViewController") as? ChooseViewController
+                    nextVC?.savedRestaurants = savedRestaurants
+                    self.navigationController?.pushViewController(nextVC!, animated: true)
+                    print("pushed")
+                }
+                else {
+                    nextRestaurant()
+                }
+
+                return
+            }
+            else if restaurantView.center.y > (view.frame.height - 75) {
+                
+                UIView.animate(withDuration: 0.3, animations: {
+                    restaurantView.center = CGPoint(x: restaurantView.center.x, y: restaurantView.center.y + 200)
+                    
+                })
+               nextRestaurant()
+                return
+            }
+            UIView.animate(withDuration: 0.5, animations: {
+                restaurantView.center = self.view.center
+            })
+        }
+        
+       
+    }
     
     func loadRestaurantArray(offset: Int, lat: Double, long: Double) {
         restaurantInfo.getResult(offset: offset, lat: lat, long: long){ (json) -> Void in
