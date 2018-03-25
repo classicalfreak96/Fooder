@@ -30,26 +30,49 @@ class ChooseViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         restaurantOneImage.image = savedRestaurants[0].images[0]
+        restaurantOneImage.animationImages = savedRestaurants[0].images
+        restaurantOneImage.animationDuration = 5
+        restaurantOneImage.animationRepeatCount = 0
+        
         restaurantTwoImage.image = savedRestaurants[1].images[0]
+        restaurantTwoImage.animationImages = savedRestaurants[1].images
+        restaurantTwoImage.animationDuration = 5
+        restaurantTwoImage.animationRepeatCount = 0
+        
         restaurantThreeImage.image = savedRestaurants[2].images[0]
+        restaurantThreeImage.animationImages = savedRestaurants[2].images
+        restaurantThreeImage.animationDuration = 5
+        restaurantThreeImage.animationRepeatCount = 0
+        
         restaurantFourImage.image = savedRestaurants[3].images[0]
+        restaurantFourImage.animationImages = savedRestaurants[3].images
+        restaurantFourImage.animationDuration = 5
+        restaurantFourImage.animationRepeatCount = 0
         
         
         let tapRestaurantOne = UITapGestureRecognizer(target: self, action: #selector(imageOneTapped(tapGestureRecognizer:)))
+        let pressRestaurantOne = UILongPressGestureRecognizer(target: self, action: #selector(imageOnePressed(selector:)))
         restaurantOneImage.isUserInteractionEnabled = true
         restaurantOneImage.addGestureRecognizer(tapRestaurantOne)
+        restaurantOneImage.addGestureRecognizer(pressRestaurantOne)
         
         let tapRestaurantTwo = UITapGestureRecognizer(target: self, action: #selector(imageTwoTapped(tapGestureRecognizer:)))
+        let pressRestaurantTwo = UILongPressGestureRecognizer(target: self, action: #selector(imageTwoPressed(selector:)))
         restaurantTwoImage.isUserInteractionEnabled = true
         restaurantTwoImage.addGestureRecognizer(tapRestaurantTwo)
+        restaurantTwoImage.addGestureRecognizer(pressRestaurantTwo)
         
         let tapRestaurantThree = UITapGestureRecognizer(target: self, action: #selector(imageThreeTapped(tapGestureRecognizer:)))
+        let pressRestaurantThree = UILongPressGestureRecognizer(target: self, action: #selector(imageThreePressed(selector:)))
         restaurantThreeImage.isUserInteractionEnabled = true
         restaurantThreeImage.addGestureRecognizer(tapRestaurantThree)
+        restaurantThreeImage.addGestureRecognizer(pressRestaurantThree)
         
         let tapRestaurantFour = UITapGestureRecognizer(target: self, action: #selector(imageFourTapped(tapGestureRecognizer:)))
+        let pressRestaurantFour = UILongPressGestureRecognizer(target: self, action: #selector(imageFourPressed(selector:)))
         restaurantFourImage.isUserInteractionEnabled = true
         restaurantFourImage.addGestureRecognizer(tapRestaurantFour)
+        restaurantFourImage.addGestureRecognizer(pressRestaurantFour)
 
     }
     
@@ -65,22 +88,52 @@ class ChooseViewController: UIViewController {
     
     func imageOneTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-       restaurantPressed(restaurant: savedRestaurants[0])
+        restaurantOneImage.startAnimating()
+        restaurantTwoImage.stopAnimating()
+        restaurantThreeImage.stopAnimating()
+        restaurantFourImage.stopAnimating()
     }
     
     func imageTwoTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        restaurantPressed(restaurant: savedRestaurants[1])
+        restaurantOneImage.stopAnimating()
+        restaurantTwoImage.startAnimating()
+        restaurantThreeImage.stopAnimating()
+        restaurantFourImage.stopAnimating()
     }
     
     func imageThreeTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        restaurantPressed(restaurant: savedRestaurants[2])
+        restaurantOneImage.stopAnimating()
+        restaurantTwoImage.stopAnimating()
+        restaurantThreeImage.startAnimating()
+        restaurantFourImage.stopAnimating()
     }
     
     func imageFourTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
+        restaurantOneImage.stopAnimating()
+        restaurantTwoImage.stopAnimating()
+        restaurantThreeImage.stopAnimating()
+        restaurantFourImage.startAnimating()
+    }
+    
+    func imageOnePressed(selector: UILongPressGestureRecognizer){
+       restaurantPressed(restaurant: savedRestaurants[0])
+    }
+    
+    func imageTwoPressed(selector: UILongPressGestureRecognizer){
+        restaurantPressed(restaurant: savedRestaurants[1])
+    }
+    
+    func imageThreePressed(selector: UILongPressGestureRecognizer){
+        restaurantPressed(restaurant: savedRestaurants[2])
+    }
+    
+    func imageFourPressed(selector: UILongPressGestureRecognizer){
         restaurantPressed(restaurant: savedRestaurants[3])
     }
+
+    
 }
 

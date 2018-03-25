@@ -160,12 +160,10 @@ class MainViewController: UIViewController {
                             print("Failed fetching image:", error!)
                             return
                         }
-                        
                         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                             print("Not a proper HTTPURLResponse or statusCode")
                             return
                         }
-                        
                         DispatchQueue.main.async {
                             self.restaurantImage.image = UIImage(data: data!)
                         }
@@ -189,7 +187,6 @@ class MainViewController: UIViewController {
                             print("Failed fetching image:", error!)
                             return
                         }
-                        
                         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                             print("Not a proper HTTPURLResponse or statusCode")
                             return

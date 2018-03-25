@@ -1,8 +1,15 @@
 Current Bugs: 
-	-when loading a new set of 20 restaurants into the array, the image and title of previous set of restaurant in first position of the array is displayed
+	-very occasionally, loading to the choose restaurant view page crashes the app
+	-in choose restaurant view, when one image is undergoing slide show and another image is tapped, the first image jumps back to image 1 in array.
+	-some images are not proportioned correctly, seem to be either squeezed or stretched into the UIView
 
 TODO: 	
-	-display accurate restaurant position on map 
-	-implement images from yelp's business look up
-	-implement special search term 
-	-make app look better (expand)
+	-implement accurate current location
+	-implement the detection of user preferences based on prior selections
+	-make app look better:
+		-rounded corners?
+		-opening loading screen?
+		-have image appear under the current image being swiped?
+		-image “bounces” after swiping previous image away
+	-implement reviews and rating
+	-make previous and next button disappear 
