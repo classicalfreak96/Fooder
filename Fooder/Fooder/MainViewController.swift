@@ -25,7 +25,8 @@ class MainViewController: UIViewController {
     var savedRestaurants:[Restaurant] = []
     var restaurantArrayCounter:Int = 0
     var pictureCounter: Int = 0
-    var offsetCounter: Int = 0 
+    var offsetCounter: Int = 0
+    var preferredCategories: [String:Int] = [:]
     
     //labels
     @IBOutlet weak var restaurantNameLabel: UILabel!
@@ -57,7 +58,17 @@ class MainViewController: UIViewController {
     
     @IBAction func yesButtonPress(_ sender: Any) {
         savedRestaurants.append(restaurants[restaurantArrayCounter])
-        
+        for item in restaurants[restaurantArrayCounter].categories {
+            if (preferredCategories[item] != nil) {
+                preferredCategories[item] = preferredCategories[item]! + 1
+            }
+            else {
+                preferredCategories[item] = 1
+            }
+        }
+        //test code
+        print(preferredCategories)
+        //end test
         if (savedRestaurants.count == 4) {
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChooseViewController") as? ChooseViewController
             nextVC?.savedRestaurants = savedRestaurants
@@ -210,7 +221,6 @@ class MainViewController: UIViewController {
         pictureCounter = 0
         restaurantArrayCounter += 1
         if (restaurantArrayCounter == 20) {
-//            self.restaurantImage.image = UIImage.gif(asset: "loading")
             print("loading new set")
             self.restaurantNameLabel.text = "Loading"
             self.restaurantImage.image = #imageLiteral(resourceName: "loading2")
