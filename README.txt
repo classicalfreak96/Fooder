@@ -2,6 +2,7 @@ Current Bugs:
 	-very occasionally, loading to the choose restaurant view page crashes the app
 	-in choose restaurant view, when one image is undergoing slide show and another image is tapped, the first image jumps back to image 1 in array.
 	-some images are not proportioned correctly, seem to be either squeezed or stretched into the UIView
+	-after long press, the map loads twice
 
 TODO: 	
 	-implement accurate current location
