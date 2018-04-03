@@ -27,6 +27,7 @@ class MainViewController: UIViewController {
     var pictureCounter: Int = 0
     var offsetCounter: Int = 0
     var preferredCategories: [String:Int] = [:]
+    var dislikedCategories: [String:Int] = [:]
     
     //labels
     @IBOutlet weak var restaurantNameLabel: UILabel!
@@ -66,9 +67,6 @@ class MainViewController: UIViewController {
                 preferredCategories[item] = 1
             }
         }
-        //test code
-        print(preferredCategories)
-        //end test
         if (savedRestaurants.count == 4) {
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChooseViewController") as? ChooseViewController
             nextVC?.savedRestaurants = savedRestaurants
@@ -81,6 +79,15 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func noButtonPress(_ sender: Any) {
+        for item in restaurants[restaurantArrayCounter].categories {
+            if (dislikedCategories[item] != nil) {
+                dislikedCategories[item] = dislikedCategories[item]! + 1
+            }
+            else {
+                dislikedCategories[item] = 1
+            }
+        }
+        print(dislikedCategories)
         nextRestaurant()
     }
     
@@ -220,7 +227,7 @@ class MainViewController: UIViewController {
     func nextRestaurant() {
         pictureCounter = 0
         restaurantArrayCounter += 1
-        if (restaurantArrayCounter == 20) {
+        if (restaurantArrayCounter == restaurants.count) {
             print("loading new set")
             self.restaurantNameLabel.text = "Loading"
             self.restaurantImage.image = #imageLiteral(resourceName: "loading2")
@@ -254,6 +261,13 @@ class MainViewController: UIViewController {
                 }.resume()
         }
     }
+    
+//    func removeDislikedCategories() {
+//        var iterator:int = 0
+//        while (iterator < restaurants.count) {
+//            for
+//        }
+//    }
     
     func nextImage() {
         if (pictureCounter < restaurants[restaurantArrayCounter].images.count - 1) {
