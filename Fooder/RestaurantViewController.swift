@@ -31,6 +31,7 @@ class RestaurantViewController: UIViewController, GMSMapViewDelegate, CLLocation
     
     
     override func viewDidLoad() {
+        UIApplication.shared.isIdleTimerDisabled = true
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         super.viewDidLoad()
@@ -66,13 +67,20 @@ class RestaurantViewController: UIViewController, GMSMapViewDelegate, CLLocation
     }
     
     @IBAction func googleMapsDirect(_ sender: Any) {
-        var googleMapString = "http://www.google.com/maps/search/?api=1&query="
-        googleMapString += "\((restaurant?.coordinates.1)!)"
-        googleMapString += ","
-        googleMapString += "\((restaurant?.coordinates.0)!)"
-        print(googleMapString)
+//        var googleMapString = "http://www.google.com/maps/search/?api=1&query="
+//        googleMapString += "\((restaurant?.coordinates.1)!)"
+//        googleMapString += ","
+//        googleMapString += "\((restaurant?.coordinates.0)!)"
+//        print(googleMapString)
+//        
+//        UIApplication.shared.openURL(URL(string: googleMapString)!)
         
-        UIApplication.shared.openURL(URL(string: googleMapString)!)
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+            UIApplication.shared.openURL(URL(string:
+                "comgooglemaps://?center=\((restaurant?.coordinates.1)!),\((restaurant?.coordinates.0)!)&zoom=14&views=traffic")!)
+        } else {
+            print("Can't use comgooglemaps://");
+        }
     }
 
     

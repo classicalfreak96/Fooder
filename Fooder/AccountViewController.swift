@@ -50,6 +50,7 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     
     
     override func viewDidLoad() {
+        UIApplication.shared.isIdleTimerDisabled = true
         super.viewDidLoad()
         GMSServices.provideAPIKey("AIzaSyDQ9Fkj4PDBcxVm0S4IhRHJBoCTPcmyABo")
         locationManager.requestAlwaysAuthorization()

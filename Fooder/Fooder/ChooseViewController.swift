@@ -25,6 +25,7 @@ class ChooseViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        UIApplication.shared.isIdleTimerDisabled = true
         super.viewDidLoad()
 
         self.navigationController?.setNavigationBarHidden(true, animated: true)
