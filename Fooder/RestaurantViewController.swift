@@ -31,6 +31,7 @@ class RestaurantViewController: UIViewController, GMSMapViewDelegate, CLLocation
     
     
     override func viewDidLoad() {
+        openTableButton.isHidden = true
         UIApplication.shared.isIdleTimerDisabled = true
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         

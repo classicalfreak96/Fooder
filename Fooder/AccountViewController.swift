@@ -50,6 +50,8 @@ class AccountViewController: UIViewController, GMSMapViewDelegate, CLLocationMan
     
     
     override func viewDidLoad() {
+        searchLabel.isHidden = true
+        searchInput.isHidden = true
         UIApplication.shared.isIdleTimerDisabled = true
         super.viewDidLoad()
         GMSServices.provideAPIKey("AIzaSyDQ9Fkj4PDBcxVm0S4IhRHJBoCTPcmyABo")
