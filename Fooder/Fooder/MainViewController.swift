@@ -32,7 +32,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     var dislikedCategories: [String:Int] = [:]
     var currentPosition: CLLocationCoordinate2D?
     var locationManager = CLLocationManager()
-
+    
     
     //labels
     @IBOutlet weak var restaurantNameLabel: UILabel!
@@ -49,12 +49,12 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         UIApplication.shared.isIdleTimerDisabled = true
-//        //location manager calls
-//        locationManager.requestAlwaysAuthorization()
-//        locationManager.delegate = self
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.startUpdatingLocation()
+        //        //location manager calls
+        //        locationManager.requestAlwaysAuthorization()
+        //        locationManager.delegate = self
+        //        locationManager.requestWhenInUseAuthorization()
+        //        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //        locationManager.startUpdatingLocation()
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
@@ -62,10 +62,10 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         self.restaurantNameLabel.text = "Loading"
         self.restaurantImage.image = #imageLiteral(resourceName: "loading2")
         DispatchQueue.main.async{
-
-//            self.loadRestaurantArray(offset: 0, lat: 37.786882, long: -122.399972)
-//            print(self.currentPosition)
-//            self.loadRestaurantArray(offset: 0, lat: (self.currentPosition?.latitude)!, long: (self.currentPosition?.longitude)!)
+            
+            //            self.loadRestaurantArray(offset: 0, lat: 37.786882, long: -122.399972)
+            //            print(self.currentPosition)
+            //            self.loadRestaurantArray(offset: 0, lat: (self.currentPosition?.latitude)!, long: (self.currentPosition?.longitude)!)
             
             //location manager calls
             self.locationManager.requestAlwaysAuthorization()
@@ -73,9 +73,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             self.locationManager.requestWhenInUseAuthorization()
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             self.locationManager.startUpdatingLocation()
-
+            
         }
-    
+        
         yesButton.isHidden = true
         noButton.isHidden = true
         
@@ -83,40 +83,40 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
-//    
-//    @IBAction func yesButtonPress(_ sender: Any) {
-//        savedRestaurants.append(restaurants[restaurantArrayCounter])
-//        for item in restaurants[restaurantArrayCounter].categories {
-//            if (preferredCategories[item] != nil) {
-//                preferredCategories[item] = preferredCategories[item]! + 1
-//            }
-//            else {
-//                preferredCategories[item] = 1
-//            }
-//        }
-//        if (savedRestaurants.count == 4) {
-//            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChooseViewController") as? ChooseViewController
-//            nextVC?.savedRestaurants = savedRestaurants
-//            self.navigationController?.pushViewController(nextVC!, animated: true)
-//            print("pushed")
-//        }
-//        else {
-//            nextRestaurant()
-//        }
-//    }
-//    
-//    @IBAction func noButtonPress(_ sender: Any) {
-//        for item in restaurants[restaurantArrayCounter].categories {
-//            if (dislikedCategories[item] != nil) {
-//                dislikedCategories[item] = dislikedCategories[item]! + 1
-//            }
-//            else {
-//                dislikedCategories[item] = 1
-//            }
-//        }
-//        print(dislikedCategories)
-//        nextRestaurant()
-//    }
+    //
+    //    @IBAction func yesButtonPress(_ sender: Any) {
+    //        savedRestaurants.append(restaurants[restaurantArrayCounter])
+    //        for item in restaurants[restaurantArrayCounter].categories {
+    //            if (preferredCategories[item] != nil) {
+    //                preferredCategories[item] = preferredCategories[item]! + 1
+    //            }
+    //            else {
+    //                preferredCategories[item] = 1
+    //            }
+    //        }
+    //        if (savedRestaurants.count == 4) {
+    //            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChooseViewController") as? ChooseViewController
+    //            nextVC?.savedRestaurants = savedRestaurants
+    //            self.navigationController?.pushViewController(nextVC!, animated: true)
+    //            print("pushed")
+    //        }
+    //        else {
+    //            nextRestaurant()
+    //        }
+    //    }
+    //
+    //    @IBAction func noButtonPress(_ sender: Any) {
+    //        for item in restaurants[restaurantArrayCounter].categories {
+    //            if (dislikedCategories[item] != nil) {
+    //                dislikedCategories[item] = dislikedCategories[item]! + 1
+    //            }
+    //            else {
+    //                dislikedCategories[item] = 1
+    //            }
+    //        }
+    //        print(dislikedCategories)
+    //        nextRestaurant()
+    //    }
     
     @IBAction func accountButtonPress(_ sender: Any) {
         let nextView = self.storyboard?.instantiateViewController(withIdentifier: "AccountViewController") as? AccountViewController
@@ -146,6 +146,14 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                     restaurantView.center = CGPoint(x: restaurantView.center.x, y: restaurantView.center.y - 200)
                 })
                 savedRestaurants.append(restaurants[restaurantArrayCounter])
+                for item in restaurants[restaurantArrayCounter].categories {
+                    if (preferredCategories[item] != nil) {
+                        preferredCategories[item] = preferredCategories[item]! + 1
+                    }
+                    else {
+                        preferredCategories[item] = 1
+                    }
+                }
                 
                 if (savedRestaurants.count == 4) {
                     let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ChooseViewController") as? ChooseViewController
@@ -154,9 +162,17 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                     print("pushed")
                 }
                 else {
+                    for item in restaurants[restaurantArrayCounter].categories {
+                        if (dislikedCategories[item] != nil) {
+                            dislikedCategories[item] = dislikedCategories[item]! + 1
+                        }
+                        else {
+                            dislikedCategories[item] = 1
+                        }
+                    }
                     nextRestaurant()
                 }
-
+                
                 return
             }
             else if restaurantView.center.y > (view.frame.height - 75) {
@@ -165,7 +181,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                     restaurantView.center = CGPoint(x: restaurantView.center.x, y: restaurantView.center.y + 200)
                     
                 })
-               nextRestaurant()
+                nextRestaurant()
                 return
             }
             UIView.animate(withDuration: 0.5, animations: {
@@ -173,7 +189,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             })
         }
         
-       
+        
     }
     
     func loadRestaurantArray(offset: Int, lat: Double, long: Double) {
@@ -260,7 +276,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             self.restaurantImage.image = #imageLiteral(resourceName: "loading2")
             DispatchQueue.main.async{
                 self.offsetCounter += 20
-//                self.loadRestaurantArray(offset: self.offsetCounter, lat: 37.786882, long: -122.399972)
+                //                self.loadRestaurantArray(offset: self.offsetCounter, lat: 37.786882, long: -122.399972)
                 self.loadRestaurantArray(offset: 0, lat: (self.currentPosition?.latitude)!, long: (self.currentPosition?.longitude)!)
                 self.loadRestaurantData(restaurantID: self.restaurants[self.restaurantArrayCounter].id)
             }
@@ -290,12 +306,12 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-//    func removeDislikedCategories() {
-//        var iterator:int = 0
-//        while (iterator < restaurants.count) {
-//            for
-//        }
-//    }
+    //    func removeDislikedCategories() {
+    //        var iterator:int = 0
+    //        while (iterator < restaurants.count) {
+    //            for
+    //        }
+    //    }
     
     func nextImage() {
         if (pictureCounter < restaurants[restaurantArrayCounter].images.count - 1) {
@@ -314,16 +330,16 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations.last
         
-//        camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude,
-//                                          longitude: userLocation!.coordinate.longitude, zoom: 13.0)
+        //        camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude,
+        //                                          longitude: userLocation!.coordinate.longitude, zoom: 13.0)
         
         currentPosition = CLLocationCoordinate2D(latitude: (userLocation!.coordinate.latitude), longitude: (userLocation!.coordinate.longitude))
         
-//        currentMarker = GMSMarker(position: currentPosition!)
-//        currentMarker?.map = map!
-//        currentMarker?.title = "Me!"
-//        
-//        map?.animate(to: camera)
+        //        currentMarker = GMSMarker(position: currentPosition!)
+        //        currentMarker?.map = map!
+        //        currentMarker?.title = "Me!"
+        //
+        //        map?.animate(to: camera)
         print("LOCATION")
         print(userLocation)
         
@@ -332,7 +348,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
     }
     
-
+    
     
     //     Handle authorization for the location manager.
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -355,6 +371,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         print("Error: \(error)")
     }
     
-
+    
 }
 
