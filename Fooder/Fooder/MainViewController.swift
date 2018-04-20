@@ -162,14 +162,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                     print("pushed")
                 }
                 else {
-                    for item in restaurants[restaurantArrayCounter].categories {
-                        if (dislikedCategories[item] != nil) {
-                            dislikedCategories[item] = dislikedCategories[item]! + 1
-                        }
-                        else {
-                            dislikedCategories[item] = 1
-                        }
-                    }
                     nextRestaurant()
                 }
                 
@@ -181,6 +173,14 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
                     restaurantView.center = CGPoint(x: restaurantView.center.x, y: restaurantView.center.y + 200)
                     
                 })
+                for item in restaurants[restaurantArrayCounter].categories {
+                    if (dislikedCategories[item] != nil) {
+                        dislikedCategories[item] = dislikedCategories[item]! + 1
+                    }
+                    else {
+                        dislikedCategories[item] = 1
+                    }
+                }
                 nextRestaurant()
                 return
             }
@@ -269,15 +269,38 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     func nextRestaurant() {
         pictureCounter = 0
-        restaurantArrayCounter += 1
-        if (restaurantArrayCounter == restaurants.count) {
+        //
+        //restaurantArrayCounter += 1
+
+        var skipRestaurant: Bool = true
+        while (skipRestaurant){
+            print(String(describing: restaurantArrayCounter + 1) + ", " + String(describing: restaurants.count))
+            if (restaurantArrayCounter + 1 >= restaurants.count)  {
+                print("test success")
+                skipRestaurant = false
+                restaurantArrayCounter += 1
+            }
+            else {
+//                print(dislikedCategories)
+                print("skipping restaurant: " + restaurants[restaurantArrayCounter].name)
+                skipRestaurant = false
+                restaurantArrayCounter += 1
+                for category in restaurants[restaurantArrayCounter].categories {
+                    if dislikedCategories[category]! >= 3 {
+                        skipRestaurant = true;
+                    }
+                }
+            }
+        }
+        //
+        if (restaurantArrayCounter >= restaurants.count) {
             print("loading new set")
             self.restaurantNameLabel.text = "Loading"
             self.restaurantImage.image = #imageLiteral(resourceName: "loading2")
             DispatchQueue.main.async{
                 self.offsetCounter += 20
                 //                self.loadRestaurantArray(offset: self.offsetCounter, lat: 37.786882, long: -122.399972)
-                self.loadRestaurantArray(offset: 0, lat: (self.currentPosition?.latitude)!, long: (self.currentPosition?.longitude)!)
+                self.loadRestaurantArray(offset: self.offsetCounter, lat: (self.currentPosition?.latitude)!, long: (self.currentPosition?.longitude)!)
                 self.loadRestaurantData(restaurantID: self.restaurants[self.restaurantArrayCounter].id)
             }
             restaurantArrayCounter = 0;
