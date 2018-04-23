@@ -24,5 +24,6 @@ class Restaurant {
     var passedPicture: UIImage = UIImage()
     var id: String = ""
     var categories = Set<String>()
+    var rejectRestaurant: Bool = false
 }
 
