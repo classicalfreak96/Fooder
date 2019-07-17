@@ -1,3 +1,5 @@
+NOTE: michellexu1 is the account of an individual whose mac computer HARRISON LU borrowed to complete this project in using xcode. 
+
 Current Bugs: 
 	-very occasionally, loading to the choose restaurant view page crashes the app
 	-in choose restaurant view, when one image is undergoing slide show and another image is tapped, the first image jumps back to image 1 in array.
